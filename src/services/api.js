@@ -10,3 +10,27 @@ export async function fetchTrendigMovies() {
 
   return responce.data;
 }
+
+export async function fetchDetailsMovies(movie_id) {
+  const responce = await axios.get(
+    `${API_URL}/movie/${movie_id}?api_key=${API_KEY}`
+  );
+
+  return responce.data;
+}
+
+export async function getMoviesCast(movie_id) {
+  const responce = await axios.get(
+    `${API_URL}/movie/${movie_id}/credits?api_key=${API_KEY}`
+  );
+
+  return responce.data;
+}
+
+export async function getMoviesReviews(movie_id) {
+  const responce = await axios.get(
+    `${API_URL}/movie/${movie_id}/reviews?api_key=${API_KEY}`
+  );
+
+  return responce.data;
+}

@@ -1,7 +1,8 @@
 import { Box } from 'components/Box';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { fetchTrendigMovies } from '../services/api';
+import { fetchTrendigMovies } from '../../services/api';
+import { MoviLink, List } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -19,11 +20,13 @@ export const Home = () => {
       <Box as="h1" my={[4]}>
         Tranding today
       </Box>
-      <ul>
+      <List>
         {movies.map(({ id, title }) => (
-          <li key={id}>{title}</li>
+          <MoviLink to={`movies/${id}`} key={id}>
+            {title}
+          </MoviLink>
         ))}
-      </ul>
+      </List>
     </Box>
   );
 };
