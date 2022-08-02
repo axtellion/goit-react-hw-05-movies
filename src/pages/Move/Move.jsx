@@ -7,7 +7,7 @@ import { MoveSearch } from '../../components/MoveSearch/MoveSearch';
 export const Move = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searthArrey, setSearthArrey] = useState([]);
-
+  const [value, setValue] = useState('');
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
@@ -18,12 +18,21 @@ export const Move = () => {
 
   const updateQueryString = query => {
     const nextParams = query !== '' ? { query } : {};
+
     setSearchParams(nextParams);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
   };
 
   return (
     <>
-      <MoveSearch value={query} onChange={updateQueryString} />
+      <MoveSearch
+        value={query}
+        onChange={updateQueryString}
+        onSubmit={handleSubmit}
+      />
       {searthArrey.length !== 0 && <MoveSearchList array={searthArrey} />}
     </>
   );

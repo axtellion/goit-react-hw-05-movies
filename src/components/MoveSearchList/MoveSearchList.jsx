@@ -1,17 +1,15 @@
-import { MoviLink, List } from './MoveSearchList.styled';
 import { useLocation } from 'react-router-dom';
+import { MoviLink, List } from './MoveSearchList.styled';
 
 export const MoveSearchList = ({ array }) => {
-  const location = useLocation();
-  console.log(location);
-
   const result = array.results;
+  const location = useLocation();
 
   return (
     <List>
       {result.map(({ id, title }) => {
         return (
-          <MoviLink to={`${id}`} key={id}>
+          <MoviLink to={`${id}`} key={id} state={{ from: location }}>
             {title}
           </MoviLink>
         );
