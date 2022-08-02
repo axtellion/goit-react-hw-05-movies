@@ -7,6 +7,8 @@ import { MoviDetails } from '../pages/MoviDetails/MoviDetails';
 import { Container } from './App.styled';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
+import { Move } from 'pages/Move/Move';
+import { Error } from 'pages/Error/Error';
 
 export const App = () => {
   return (
@@ -14,12 +16,12 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="movies" element={<div>Movies</div>}></Route>
+          <Route path="movies" element={<Move />} />
           <Route path="movies/:id" element={<MoviDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<div>Error</div>} />
+          <Route path="*" element={<Error />} />
         </Route>
       </Routes>
       <GlobalStyle />

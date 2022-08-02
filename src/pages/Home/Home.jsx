@@ -17,7 +17,7 @@ export const Home = () => {
 
   return (
     <Box>
-      <Box as="h1" my={[4]}>
+      <Box as="h1" my={4}>
         Tranding today
       </Box>
       <List>

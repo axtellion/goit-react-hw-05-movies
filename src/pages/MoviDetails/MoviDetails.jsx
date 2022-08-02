@@ -8,7 +8,7 @@ import defaultImg from 'Img/error_img.jpg';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 
-export const MoviDetails = () => {
+export const MoviDetails = ({ state }) => {
   const [movi, setMovi] = useState({});
   const { id } = useParams();
   useEffect(() => {
@@ -18,7 +18,7 @@ export const MoviDetails = () => {
   const { poster_path, title, release_date, vote_average, overview, genres } =
     movi;
   const imagePoster = poster_path ? `${IMG_URL}${poster_path}` : defaultImg;
-
+  console.log(state);
   return (
     <>
       <Box display="flex" mt={4} ml={2} pb={3}>

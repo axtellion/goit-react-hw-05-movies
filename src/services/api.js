@@ -34,3 +34,10 @@ export async function getMoviesReviews(movie_id) {
 
   return responce.data;
 }
+
+export async function getSearchMovi(search) {
+  const responce = await axios.get(
+    `${API_URL}search/movie?api_key=${API_KEY}&query=${search}`
+  );
+  return responce.data;
+}

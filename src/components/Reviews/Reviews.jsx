@@ -10,7 +10,6 @@ export const Reviews = () => {
   useEffect(() => {
     getMoviesReviews(id).then(setState);
   }, [id]);
-
   return (
     <List>
       {state && state.results.length > 0 ? (
