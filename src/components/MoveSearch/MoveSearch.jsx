@@ -1,15 +1,25 @@
 import { Box } from 'components/Box';
-import { SearchInput, Btn } from './MoveSearch,styled';
+import { SearchInput, Btn, SearchForm } from './MoveSearch,styled';
+import * as yup from 'yup';
+import { Formik } from 'formik';
 
-export const MoveSearch = ({ onSubmit, value, onChange }) => {
+const schema = yup.object().shape({
+  search: yup.string().required(),
+});
+
+export const MoveSearch = ({ onSubmit }) => {
   return (
-    <Box mt={4} display="flex" as="form" onSubmit={onSubmit}>
-      <SearchInput
-        type="text"
-        value={value}
-        onChange={e => onChange(e.target.value)}
-      />
-      <Btn type="submit">Search</Btn>
+    <Box mt={4}>
+      <Formik
+        initialValues={{ search: '' }}
+        validationSchema={schema}
+        onSubmit={onSubmit}
+      >
+        <SearchForm>
+          <SearchInput type="text" name="search"></SearchInput>
+          <Btn type="submit">Search</Btn>
+        </SearchForm>
+      </Formik>
     </Box>
   );
 };

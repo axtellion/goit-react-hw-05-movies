@@ -1,6 +1,5 @@
 import { Box } from 'components/Box';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchTrendigMovies } from '../../services/api';
 import { MoviLink, List } from './Home.styled';
 

@@ -9,7 +9,8 @@ export const MoviLink = styled(NavLink)`
 
   color: blue;
 
-  &:active {
+  :active,
+  :hover {
     color: red;
   }
 `;

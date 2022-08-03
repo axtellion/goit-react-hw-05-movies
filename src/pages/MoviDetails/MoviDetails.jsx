@@ -1,18 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { fetchDetailsMovies } from 'services/api';
 import { Box } from 'components/Box';
-import {
-  PosterImg,
-  TitleBox,
-  Title,
-  List,
-  NavItem,
-} from './MoviDetails.styled';
+import { PosterImg, TitleBox, Title, List } from './MoviDetails.styled';
 import { AdditionalInfo } from 'components/AdditionalInfo/AdditionalInfo';
 import defaultImg from 'Img/error_img.jpg';
-import { GoArrowLeft } from 'react-icons/go';
-import { useLocation } from 'react-router-dom';
+import { BtnBack } from 'components/BtnBack/BtnBack';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 
@@ -31,13 +24,13 @@ export const MoviDetails = () => {
   const imagePoster = poster_path ? `${IMG_URL}${poster_path}` : defaultImg;
 
   const backLink = location.state?.from ?? '/';
-
   return (
     <>
-      <NavItem to={backLink}>
-        <GoArrowLeft />
-        <p>Go Back</p>
-      </NavItem>
+      {backLink === '/' ? (
+        <BtnBack title="Go Home" to={backLink} />
+      ) : (
+        <BtnBack title="Go Back" to={backLink} />
+      )}
       <Box display="flex" mt={4} ml={2} pb={3}>
         <PosterImg src={imagePoster} alt="Poster Movie" />
         <TitleBox>

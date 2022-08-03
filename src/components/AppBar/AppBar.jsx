@@ -1,6 +1,5 @@
 import { Box } from 'components/Box';
-import { NavItem } from './AppBar.styled';
-import { BoxHeader } from './AppBar.styled';
+import { NavItem, BoxHeader } from './AppBar.styled';
 
 export const AppBar = () => {
   return (

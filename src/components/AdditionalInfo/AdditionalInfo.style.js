@@ -17,7 +17,8 @@ export const NavItem = styled(NavLink)`
   text-decoration: none;
   color: blue;
 
-  &:active {
+  :active,
+  :hover {
     color: red;
   }
 `;

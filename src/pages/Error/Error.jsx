@@ -1,14 +1,11 @@
 import ImgPageError from '../../Img/error_page.jpg';
-import { ImgError, NavItem } from './Error.styled';
-import { GoArrowLeft } from 'react-icons/go';
+import { ImgError } from './Error.styled';
+import { BtnBack } from 'components/BtnBack/BtnBack';
 
 export const Error = () => {
   return (
     <>
-      <NavItem to={'/'}>
-        <GoArrowLeft />
-        <p>Go to Home</p>
-      </NavItem>
+      <BtnBack title="Go Home" to="/" />
       <ImgError src={ImgPageError} alt="Error" />
     </>
   );
