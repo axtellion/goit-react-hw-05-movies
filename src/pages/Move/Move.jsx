@@ -5,7 +5,7 @@ import { getSearchMovi } from 'services/api';
 import { MoveSearch } from '../../components/MoveSearch/MoveSearch';
 import { toast } from 'react-hot-toast';
 
-export const Move = () => {
+const Move = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searthArrey, setSearthArrey] = useState([]);
   const query = searchParams.get('query') ?? '';
@@ -42,3 +42,5 @@ export const Move = () => {
     </>
   );
 };
+
+export default Move;

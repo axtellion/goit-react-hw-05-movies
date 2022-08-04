@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { MoviLink, List } from './MoveSearchList.styled';
 
@@ -16,4 +17,8 @@ export const MoveSearchList = ({ array }) => {
       })}
     </List>
   );
+};
+
+MoveSearchList.propTypes = {
+  array: PropTypes.array.isRequired,
 };

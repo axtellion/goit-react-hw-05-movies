@@ -1,29 +1,37 @@
-import { GlobalStyle } from './GlobalStyle';
-import { Toaster } from 'react-hot-toast';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from './Layout/Layout';
-import { Home } from 'pages/Home/Home';
-import { MoviDetails } from '../pages/MoviDetails/MoviDetails';
+
+import { GlobalStyle } from './GlobalStyle';
 import { Container } from './App.styled';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
-import { Move } from 'pages/Move/Move';
-import { Error } from 'pages/Error/Error';
+
+import { Layout } from './Layout/Layout';
+import { Loader } from './Loader/Loader';
+
+import { Toaster } from 'react-hot-toast';
+
+const Home = lazy(() => import('../pages/Home/Home'));
+const Move = lazy(() => import('../pages/Move/Move'));
+const MoviDetails = lazy(() => import('../pages/MoviDetails/MoviDetails'));
+const Error = lazy(() => import('../pages/Error/Error'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
     <Container>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="movies" element={<Move />} />
-          <Route path="movies/:id" element={<MoviDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="movies" element={<Move />} />
+            <Route path="movies/:id" element={<MoviDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+            <Route path="*" element={<Error />} />
           </Route>
-          <Route path="*" element={<Error />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
       <GlobalStyle />
       <Toaster position="top-right" reverseOrder={false} />
     </Container>

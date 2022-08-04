@@ -2,7 +2,7 @@ import ImgPageError from '../../Img/error_page.jpg';
 import { ImgError } from './Error.styled';
 import { BtnBack } from 'components/BtnBack/BtnBack';
 
-export const Error = () => {
+const Error = () => {
   return (
     <>
       <BtnBack title="Go Home" to="/" />
@@ -10,3 +10,5 @@ export const Error = () => {
     </>
   );
 };
+
+export default Error;

@@ -9,7 +9,7 @@ import { BtnBack } from 'components/BtnBack/BtnBack';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 
-export const MoviDetails = () => {
+const MoviDetails = () => {
   const [movi, setMovi] = useState({});
   const { id } = useParams();
   const location = useLocation();
@@ -55,3 +55,5 @@ export const MoviDetails = () => {
     </>
   );
 };
+
+export default MoviDetails;

@@ -7,7 +7,7 @@ import { Box } from 'components/Box';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 
-export const Cast = () => {
+const Cast = () => {
   const [state, setState] = useState();
   const { id } = useParams();
 
@@ -41,3 +41,5 @@ export const Cast = () => {
     </Box>
   );
 };
+
+export default Cast;

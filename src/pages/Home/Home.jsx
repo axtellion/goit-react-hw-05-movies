@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchTrendigMovies } from '../../services/api';
 import { MoviLink, List } from './Home.styled';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -29,3 +29,5 @@ export const Home = () => {
     </Box>
   );
 };
+
+export default Home;

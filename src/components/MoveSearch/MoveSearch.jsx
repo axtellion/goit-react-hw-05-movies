@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box } from 'components/Box';
 import { SearchInput, Btn, SearchForm } from './MoveSearch,styled';
 import * as yup from 'yup';
@@ -22,4 +23,8 @@ export const MoveSearch = ({ onSubmit }) => {
       </Formik>
     </Box>
   );
+};
+
+MoveSearch.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
